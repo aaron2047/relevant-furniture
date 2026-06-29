@@ -216,16 +216,14 @@
   .hero-image-container {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(to right, var(--charcoal) 0%, transparent 30%),
-      linear-gradient(135deg, #2d2520 0%, #1a1714 40%, #3d2e1e 100%);
+    overflow: hidden;
   }
 
-  .hero-furniture-svg {
-    position: absolute;
-    inset: 0;
+  .hero-image-container img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .hero-stats {
@@ -566,9 +564,16 @@
     border: 1px solid rgba(201,168,76,0.07);
   }
 
-  .product-img-wrap svg {
+  .product-img-wrap img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.04);
   }
 
   .product-badge {
@@ -1483,93 +1488,8 @@
 
   <div class="hero-right">
     <div class="hero-image-container">
-      <!-- Illustrated sofa SVG -->
-      <svg class="hero-furniture-svg" viewBox="0 0 700 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background warm glow -->
-        <ellipse cx="350" cy="750" rx="280" ry="60" fill="rgba(201,168,76,0.06)"/>
-
-        <!-- Shadow -->
-        <ellipse cx="350" cy="780" rx="220" ry="20" fill="rgba(0,0,0,0.35)"/>
-
-        <!-- Sofa base legs -->
-        <rect x="155" y="730" width="18" height="50" rx="4" fill="#3d2e20"/>
-        <rect x="527" y="730" width="18" height="50" rx="4" fill="#3d2e20"/>
-        <rect x="185" y="730" width="12" height="40" rx="3" fill="#3d2e20"/>
-        <rect x="503" y="730" width="12" height="40" rx="3" fill="#3d2e20"/>
-
-        <!-- Sofa main body -->
-        <rect x="130" y="580" width="440" height="155" rx="14" fill="#2a1f14"/>
-        <rect x="130" y="580" width="440" height="155" rx="14" fill="url(#sofaGrad)"/>
-
-        <!-- Sofa cushions -->
-        <rect x="148" y="595" width="195" height="120" rx="10" fill="#2d2015"/>
-        <rect x="357" y="595" width="195" height="120" rx="10" fill="#2d2015"/>
-
-        <!-- Cushion highlight lines -->
-        <line x1="245" y1="605" x2="245" y2="705" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
-        <line x1="148" y1="650" x2="343" y2="650" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
-        <line x1="454" y1="650" x2="552" y2="650" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
-
-        <!-- Sofa back -->
-        <rect x="130" y="490" width="440" height="100" rx="14" fill="#241a0f"/>
-        <rect x="148" y="500" width="195" height="82" rx="8" fill="#2a1f13"/>
-        <rect x="357" y="500" width="195" height="82" rx="8" fill="#2a1f13"/>
-
-        <!-- Sofa arms -->
-        <rect x="100" y="490" width="55" height="245" rx="14" fill="#2a1f13"/>
-        <rect x="100" y="490" width="55" height="245" rx="14" fill="rgba(201,168,76,0.04)"/>
-        <rect x="545" y="490" width="55" height="245" rx="14" fill="#2a1f13"/>
-
-        <!-- Arm top cushion -->
-        <rect x="96" y="478" width="63" height="22" rx="8" fill="#2d2015"/>
-        <rect x="541" y="478" width="63" height="22" rx="8" fill="#2d2015"/>
-
-        <!-- Gold trim piping -->
-        <rect x="100" y="490" width="55" height="2" fill="rgba(201,168,76,0.3)"/>
-        <rect x="545" y="490" width="55" height="2" fill="rgba(201,168,76,0.3)"/>
-        <rect x="130" y="490" width="440" height="2" fill="rgba(201,168,76,0.2)"/>
-        <rect x="130" y="580" width="440" height="2" fill="rgba(201,168,76,0.15)"/>
-
-        <!-- Throw pillow 1 -->
-        <rect x="200" y="570" width="70" height="70" rx="6" transform="rotate(-8 200 570)" fill="#c9a84c" opacity="0.7"/>
-        <rect x="208" y="578" width="54" height="54" rx="4" transform="rotate(-8 208 578)" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-
-        <!-- Throw pillow 2 -->
-        <rect x="390" y="565" width="65" height="65" rx="6" transform="rotate(6 390 565)" fill="#8a6e3a" opacity="0.8"/>
-
-        <!-- Side table -->
-        <rect x="620" y="660" width="60" height="8" rx="4" fill="#3d2e20"/>
-        <rect x="635" y="668" width="8" height="62" fill="#3d2e20"/>
-        <rect x="655" y="668" width="8" height="62" fill="#3d2e20"/>
-        <rect x="628" y="720" width="44" height="5" rx="2" fill="#2d2015"/>
-
-        <!-- Small vase on table -->
-        <ellipse cx="648" cy="663" rx="16" ry="5" fill="#2d2015"/>
-        <path d="M 636 663 Q 636 630 648 625 Q 660 630 660 663 Z" fill="#3d2e20"/>
-        <ellipse cx="648" cy="625" rx="6" ry="3" fill="#4a3520"/>
-
-        <!-- Floating gold orb decoration -->
-        <circle cx="580" cy="420" r="6" fill="rgba(201,168,76,0.25)"/>
-        <circle cx="580" cy="420" r="3" fill="rgba(201,168,76,0.5)"/>
-        <circle cx="620" cy="380" r="4" fill="rgba(201,168,76,0.2)"/>
-        <circle cx="560" cy="360" r="2.5" fill="rgba(201,168,76,0.3)"/>
-
-        <!-- Floor line -->
-        <line x1="80" y1="780" x2="670" y2="780" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
-
-        <!-- Abstract wall art above sofa -->
-        <rect x="250" y="320" width="220" height="150" rx="2" fill="#1e1510" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-        <line x1="270" y1="340" x2="450" y2="450" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
-        <circle cx="360" cy="395" r="40" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-        <rect x="290" y="355" width="100" height="80" rx="0" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
-
-        <defs>
-          <linearGradient id="sofaGrad" x1="350" y1="580" x2="350" y2="735" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="rgba(201,168,76,0.05)"/>
-            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <!-- Real showroom photo -->
+      <img src="1.1.jpg" alt="Luxury white sectional sofa at Relevant Furniture showroom" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.85;"/>
     </div>
 
     <!-- Hero stats -->
@@ -1678,8 +1598,8 @@
 
     <!-- Category 1: Living Room (large) -->
     <div class="category-card">
-      <div class="cat-bg" style="background: linear-gradient(145deg, #1e1a16 0%, #2d2416 50%, #3d2e1e 100%); position:absolute; inset:0;">
-        <svg viewBox="0 0 400 600" style="width:100%;height:100%;opacity:0.55" fill="none">
+      <div class="cat-bg" style="position:absolute; inset:0;">
+        <img src="1.1.jpg" alt="Living room sectional" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
           <rect x="40" y="350" width="320" height="120" rx="12" fill="#2d2015"/>
           <rect x="40" y="250" width="320" height="108" rx="12" fill="#241a0f"/>
           <rect x="15" y="255" width="50" height="220" rx="12" fill="#2a1f13"/>
@@ -1694,7 +1614,6 @@
           <ellipse cx="200" cy="475" rx="155" ry="15" fill="rgba(0,0,0,0.4)"/>
           <rect x="160" y="470" width="12" height="35" rx="3" fill="#2a1f13"/>
           <rect x="228" y="470" width="12" height="35" rx="3" fill="#2a1f13"/>
-        </svg>
       </div>
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -1706,20 +1625,8 @@
 
     <!-- Category 2: Bedroom -->
     <div class="category-card">
-      <div class="cat-bg" style="background: linear-gradient(145deg, #16191e 0%, #1e2430 100%); position:absolute;inset:0;">
-        <svg viewBox="0 0 300 250" style="width:100%;height:100%;opacity:0.5" fill="none">
-          <rect x="30" y="80" width="240" height="130" rx="8" fill="#1e2530"/>
-          <rect x="30" y="60" width="240" height="30" rx="6" fill="#2a3040"/>
-          <rect x="30" y="60" width="240" height="4" fill="rgba(201,168,76,0.2)"/>
-          <rect x="50" y="90" width="90" height="110" rx="5" fill="#242e3e"/>
-          <rect x="160" y="90" width="90" height="110" rx="5" fill="#242e3e"/>
-          <rect x="20" y="130" width="20" height="80" rx="4" fill="#2a3040"/>
-          <rect x="260" y="130" width="20" height="80" rx="4" fill="#2a3040"/>
-          <rect x="15" y="128" width="30" height="8" rx="3" fill="#2d3448"/>
-          <rect x="255" y="128" width="30" height="8" rx="3" fill="#2d3448"/>
-          <circle cx="25" cy="120" r="5" fill="#c9a84c" opacity="0.6"/>
-          <circle cx="275" cy="120" r="5" fill="#c9a84c" opacity="0.6"/>
-        </svg>
+      <div class="cat-bg" style="position:absolute;inset:0;">
+        <img src="1.2.jpg" alt="Bedroom set" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
       </div>
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -1731,14 +1638,8 @@
 
     <!-- Category 3: Dining -->
     <div class="category-card">
-      <div class="cat-bg" style="background:linear-gradient(145deg, #1a1610 0%, #2a2010 100%);position:absolute;inset:0;">
-        <svg viewBox="0 0 300 250" style="width:100%;height:100%;opacity:0.5" fill="none">
-          <rect x="60" y="100" width="180" height="12" rx="4" fill="#3d2e18"/>
-          <rect x="120" y="112" width="10" height="90" rx="3" fill="#2d2010"/>
-          <rect x="170" y="112" width="10" height="90" rx="3" fill="#2d2010"/>
-          <ellipse cx="100" cy="100" rx="24" ry="50" fill="#2d2010" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-          <ellipse cx="200" cy="100" rx="24" ry="50" fill="#2d2010" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-        </svg>
+      <div class="cat-bg" style="position:absolute;inset:0;">
+        <img src="1.5.jpg" alt="Marble dining table" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
       </div>
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -1750,14 +1651,8 @@
 
     <!-- Category 4: Accents -->
     <div class="category-card">
-      <div class="cat-bg" style="background:linear-gradient(145deg, #1a1516 0%, #2a1520 100%);position:absolute;inset:0;">
-        <svg viewBox="0 0 300 250" style="width:100%;height:100%;opacity:0.5" fill="none">
-          <rect x="90" y="50" width="120" height="180" rx="6" fill="#2d1520"/>
-          <rect x="90" y="50" width="120" height="4" fill="rgba(201,168,76,0.25)"/>
-          <ellipse cx="150" cy="50" rx="22" ry="8" fill="#3d2030"/>
-          <line x1="90" y1="120" x2="210" y2="120" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-          <circle cx="150" cy="155" r="20" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
-        </svg>
+      <div class="cat-bg" style="position:absolute;inset:0;">
+        <img src="1.7.jpg" alt="Luxury velvet bed" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
       </div>
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -1784,27 +1679,7 @@
     <!-- Product 1 -->
     <div class="product-card">
       <div class="product-img-wrap">
-        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="400" fill="#222018"/>
-          <!-- Sectional sofa -->
-          <ellipse cx="150" cy="370" rx="120" ry="12" fill="rgba(0,0,0,0.4)"/>
-          <rect x="30" y="240" width="240" height="110" rx="12" fill="#1e1a12"/>
-          <rect x="30" y="160" width="240" height="88" rx="12" fill="#181410"/>
-          <rect x="10" y="164" width="44" height="190" rx="12" fill="#181410"/>
-          <rect x="246" y="164" width="44" height="190" rx="12" fill="#181410"/>
-          <rect x="48" y="172" width="100" height="72" rx="8" fill="#1e1a12"/>
-          <rect x="156" y="172" width="100" height="72" rx="8" fill="#1e1a12"/>
-          <rect x="48" y="250" width="100" height="90" rx="8" fill="#1e1a12"/>
-          <rect x="156" y="250" width="100" height="90" rx="8" fill="#1e1a12"/>
-          <rect x="30" y="160" width="240" height="2" fill="rgba(201,168,76,0.35)"/>
-          <!-- Throw -->
-          <path d="M 80 240 Q 100 200 130 220 Q 150 230 140 250 Z" fill="#c9a84c" opacity="0.55"/>
-          <!-- Pillows -->
-          <rect x="158" y="237" width="52" height="52" rx="4" transform="rotate(-5 158 237)" fill="#2d2415"/>
-          <rect x="90" y="235" width="48" height="48" rx="4" transform="rotate(7 90 235)" fill="#3d2e18" opacity="0.9"/>
-          <rect x="44" y="352" width="14" height="30" rx="3" fill="#2d2010"/>
-          <rect x="242" y="352" width="14" height="30" rx="3" fill="#2d2010"/>
-        </svg>
+        <img src="1.1.jpg" alt="White sectional sofa" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
         <div class="product-badge">Bestseller</div>
       </div>
       <div class="product-name">Grand Velour Sectional</div>
@@ -1818,43 +1693,7 @@
     <!-- Product 2 -->
     <div class="product-card">
       <div class="product-img-wrap">
-        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="400" fill="#1a1e24"/>
-          <!-- Upholstered bed -->
-          <ellipse cx="150" cy="380" rx="130" ry="12" fill="rgba(0,0,0,0.35)"/>
-          <!-- Bed frame base -->
-          <rect x="25" y="200" width="250" height="155" rx="6" fill="#1c2230"/>
-          <!-- Mattress -->
-          <rect x="35" y="205" width="230" height="140" rx="4" fill="#e8e0d0"/>
-          <rect x="35" y="205" width="230" height="4" fill="rgba(255,255,255,0.6)"/>
-          <!-- Bedding -->
-          <rect x="35" y="240" width="230" height="105" rx="4" fill="#d4cbbf"/>
-          <rect x="35" y="240" width="230" height="2" fill="rgba(255,255,255,0.5)"/>
-          <!-- Pillows -->
-          <rect x="48" y="210" width="90" height="55" rx="6" fill="#efe8dc"/>
-          <rect x="162" y="210" width="90" height="55" rx="6" fill="#efe8dc"/>
-          <!-- Pillow seam -->
-          <line x1="93" y1="215" x2="93" y2="260" stroke="rgba(200,180,150,0.4)" stroke-width="1"/>
-          <line x1="207" y1="215" x2="207" y2="260" stroke="rgba(200,180,150,0.4)" stroke-width="1"/>
-          <!-- Headboard -->
-          <rect x="25" y="90" width="250" height="120" rx="10" fill="#232d3c"/>
-          <rect x="35" y="100" width="230" height="100" rx="8" fill="#1c2635"/>
-          <!-- Headboard tufting -->
-          <circle cx="95" cy="150" r="5" fill="#2a3545"/>
-          <circle cx="150" cy="130" r="5" fill="#2a3545"/>
-          <circle cx="205" cy="150" r="5" fill="#2a3545"/>
-          <circle cx="125" cy="170" r="5" fill="#2a3545"/>
-          <circle cx="175" cy="170" r="5" fill="#2a3545"/>
-          <!-- Gold accent lines on headboard -->
-          <rect x="25" y="88" width="250" height="2" fill="rgba(201,168,76,0.4)"/>
-          <!-- Nightstands -->
-          <rect x="230" y="280" width="55" height="65" rx="4" fill="#1c2635"/>
-          <rect x="15" y="280" width="55" height="65" rx="4" fill="#1c2635"/>
-          <!-- Lamp -->
-          <rect x="244" y="248" width="8" height="35" rx="2" fill="#c9a84c" opacity="0.7"/>
-          <ellipse cx="248" cy="248" rx="18" ry="8" fill="#c9a84c" opacity="0.5"/>
-          <ellipse cx="248" cy="315" rx="14" ry="3" fill="#232d3c"/>
-        </svg>
+        <img src="1.4.jpg" alt="White and gold bedroom set" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
         <div class="product-badge">New Arrival</div>
       </div>
       <div class="product-name">Monaco Upholstered Bed</div>
@@ -1868,42 +1707,10 @@
     <!-- Product 3 -->
     <div class="product-card">
       <div class="product-img-wrap">
-        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="400" fill="#1e1810"/>
-          <!-- Dining table -->
-          <ellipse cx="150" cy="380" rx="100" ry="10" fill="rgba(0,0,0,0.35)"/>
-          <!-- Table top -->
-          <rect x="40" y="190" width="220" height="16" rx="5" fill="#4a3520"/>
-          <rect x="40" y="190" width="220" height="4" fill="rgba(201,168,76,0.2)"/>
-          <!-- Table legs -->
-          <rect x="70" y="206" width="12" height="120" rx="3" fill="#3d2e18"/>
-          <rect x="218" y="206" width="12" height="120" rx="3" fill="#3d2e18"/>
-          <rect x="80" y="316" width="30" height="8" rx="2" fill="#3d2e18"/>
-          <rect x="190" y="316" width="30" height="8" rx="2" fill="#3d2e18"/>
-          <!-- Chairs left -->
-          <ellipse cx="55" cy="188" rx="32" ry="46" fill="#2a1f10" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-          <rect x="37" y="190" width="36" height="8" rx="3" fill="#1e1508"/>
-          <rect x="40" y="198" width="10" height="45" rx="3" fill="#1e1508"/>
-          <rect x="63" y="198" width="10" height="45" rx="3" fill="#1e1508"/>
-          <!-- Chairs right -->
-          <ellipse cx="245" cy="188" rx="32" ry="46" fill="#2a1f10" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-          <rect x="227" y="190" width="36" height="8" rx="3" fill="#1e1508"/>
-          <rect x="230" y="198" width="10" height="45" rx="3" fill="#1e1508"/>
-          <rect x="253" y="198" width="10" height="45" rx="3" fill="#1e1508"/>
-          <!-- Table decor -->
-          <rect x="130" y="175" width="6" height="18" rx="2" fill="#c9a84c" opacity="0.7"/>
-          <ellipse cx="133" cy="175" rx="12" ry="5" fill="#c9a84c" opacity="0.45"/>
-          <!-- Plate settings hints -->
-          <circle cx="100" cy="195" r="12" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-          <circle cx="200" cy="195" r="12" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-          <!-- Overhead pendant -->
-          <line x1="150" y1="50" x2="150" y2="160" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-          <ellipse cx="150" cy="165" rx="28" ry="10" fill="#2a2010" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-          <ellipse cx="150" cy="160" rx="18" ry="6" fill="#c9a84c" opacity="0.3"/>
-        </svg>
+        <img src="1.5.jpg" alt="Marble top dining table with chairs" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
       </div>
       <div class="product-name">Palermo Dining Set</div>
-      <div class="product-desc">Table + 6 Chairs • Walnut finish • Seats up to 8</div>
+      <div class="product-desc">Marble top • 6 upholstered chairs • Statement piece</div>
       <div class="product-footer">
         <div class="product-price">From $1,099</div>
         <a href="tel:2679005286" class="product-cta">Inquire</a>
