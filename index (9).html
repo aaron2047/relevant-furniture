@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relevant Furniture — Philadelphia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1a1714;
+    --charcoal-soft: #2d2926;
+    --cream: #f5f0e8;
+    --cream-deep: #ede5d8;
+    --gold: #c9a84c;
+    --gold-light: #e0c47a;
+    --gold-muted: #9a7c34;
+    --warm-gray: #8a847c;
+    --off-white: #faf8f4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    background: transparent;
+    transition: background 0.4s ease;
+    mix-blend-mode: normal;
+  }
+
+  nav.scrolled {
+    background: rgba(26,23,20,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+
+  .nav-cta {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 0.65rem 1.6rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 3rem 6rem 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4.5rem, 9vw, 8.5rem);
+    font-weight: 300;
+    line-height: 0.88;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-display em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    max-width: 28rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .btn-ghost:hover { opacity: 1; }
+
+  .btn-ghost::after {
+    content: '→';
+    font-size: 1rem;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 4rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 3;
+  }
+
+  .stat-item {
+    text-align: right;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 0.2rem;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.45;
+    z-index: 5;
+  }
+
+  .hero-scroll-hint span {
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 2.5rem;
+    background: linear-gradient(to bottom, var(--cream), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.1); }
+  }
+
+  /* MARQUEE STRIP */
+  .marquee-strip {
+    background: var(--gold);
+    padding: 0.8rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-flex;
+    animation: marqueeScroll 22s linear infinite;
+  }
+
+  .marquee-inner span {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    padding: 0 3rem;
+  }
+
+  .marquee-inner span.dot {
+    color: var(--charcoal);
+    padding: 0;
+    opacity: 0.5;
+  }
+
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTION: PHILOSOPHY */
+  .philosophy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 75vh;
+  }
+
+  .philosophy-text {
+    padding: 7rem 4rem 7rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 2rem;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .section-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    line-height: 1.9;
+    max-width: 30rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .philosophy-visual {
+    background: var(--charcoal-soft);
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .philosophy-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: rgba(201,168,76,0.05);
+    padding: 2px;
+  }
+
+  .phil-cell {
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .phil-cell:hover { background: var(--charcoal-soft); }
+
+  .phil-icon {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  .phil-cell h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .phil-cell p {
+    font-size: 0.72rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  /* CATEGORIES */
+  .categories {
+    padding: 6rem 3rem;
+    background: var(--charcoal-soft);
+  }
+
+  .categories-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+  }
+
+  .category-card {
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--charcoal);
+  }
+
+  .category-card:first-child {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+
+  .cat-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+  }
+
+  .category-card:hover .cat-bg {
+    transform: scale(1.04);
+  }
+
+  .cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,23,20,0.9) 0%, rgba(26,23,20,0.1) 60%);
+  }
+
+  .cat-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+  }
+
+  .cat-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .cat-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .category-card:first-child .cat-title {
+    font-size: 2.2rem;
+  }
+
+  .cat-arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(201,168,76,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .category-card:hover .cat-arrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* FEATURED */
+  .featured {
+    padding: 7rem 3rem;
+    background: var(--charcoal);
+  }
+
+  .featured-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .product-card {
+    cursor: pointer;
+  }
+
+  .product-img-wrap {
+    aspect-ratio: 3/4;
+    background: var(--charcoal-soft);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(201,168,76,0.07);
+  }
+
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .product-desc {
+    font-size: 0.75rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.8rem;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+  }
+
+  .product-cta {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .product-cta:hover { opacity: 1; color: var(--gold); }
+
+  .product-cta::after { content: '→'; }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--cream-deep);
+    padding: 7rem 3rem;
+    color: var(--charcoal);
+  }
+
+  .testimonials .section-label { color: var(--gold-muted); }
+  .testimonials .section-label::before { background: var(--gold-muted); }
+  .testimonials .section-heading { color: var(--charcoal); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .review-card {
+    background: var(--off-white);
+    padding: 2.2rem;
+    border-top: 2px solid var(--gold);
+    position: relative;
+  }
+
+  .review-stars {
+    display: flex;
+    gap: 0.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .star {
+    color: var(--gold);
+    font-size: 0.9rem;
+  }
+
+  .review-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-top: 1px solid var(--cream-deep);
+    padding-top: 1rem;
+  }
+
+  .author-avatar {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.04em;
+  }
+
+  .author-via {
+    font-size: 0.65rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+  }
+
+  /* DELIVERY STRIP */
+  .delivery-strip {
+    background: var(--charcoal-soft);
+    padding: 3.5rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .delivery-item {
+    text-align: center;
+    padding: 0 1.5rem;
+    border-right: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .delivery-item:last-child { border-right: none; }
+
+  .delivery-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .delivery-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .delivery-sub {
+    font-size: 0.7rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  /* STORE INFO */
+  .store-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 55vh;
+  }
+
+  .store-details {
+    padding: 6rem 4rem 6rem 3rem;
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .info-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .info-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+
+  .info-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  .info-value a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2rem 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .hour-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .hour-row .day { color: var(--cream); opacity: 0.7; }
+  .hour-row .time { color: var(--gold-light); }
+
+  .store-map-area {
+    background: var(--charcoal-soft);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--warm-gray);
+  }
+
+  .map-pin-svg { opacity: 0.4; }
+
+  .map-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--cream-deep);
+    opacity: 0.6;
+    text-align: center;
+  }
+
+  .map-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--warm-gray);
+    text-align: center;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--gold);
+    padding: 6rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18vw;
+    font-weight: 300;
+    color: rgba(26,23,20,0.06);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-section .section-label { color: var(--charcoal); opacity: 0.6; }
+  .cta-section .section-label::before { background: var(--charcoal); }
+
+  .cta-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .cta-sub {
+    font-size: 0.88rem;
+    color: var(--charcoal);
+    opacity: 0.65;
+    max-width: 32rem;
+    margin: 0 auto 2.5rem;
+    position: relative;
+  }
+
+  .btn-dark {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--charcoal);
+    padding: 1.1rem 2.8rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+  }
+
+  .btn-dark:hover {
+    background: var(--charcoal-soft);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 4rem 3rem 2.5rem;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand .nav-logo {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--warm-gray);
+    line-height: 1.7;
+    max-width: 20rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid rgba(201,168,76,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warm-gray);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .footer-col h5 {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-col a {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 2rem;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--warm-gray);
+    opacity: 0.7;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-legal a {
+    font-size: 0.72rem;
+    color: var(--warm-gray);
+    opacity: 0.6;
+    text-decoration: none;
+  }
+
+  .footer-legal a:hover { opacity: 1; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .category-card:first-child { grid-row: auto; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 7rem 1.5rem 4rem; }
+    .philosophy { grid-template-columns: 1fr; }
+    .philosophy-visual { display: none; }
+    .categories-grid { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .delivery-strip { grid-template-columns: 1fr 1fr; gap: 2rem 0; }
+    .delivery-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); padding-bottom: 2rem; }
+    .delivery-item:nth-child(odd) { border-right: 1px solid rgba(201,168,76,0.1); }
+    .store-info { grid-template-columns: 1fr; }
+    .store-map-area { display: none; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .categories, .featured, .testimonials, .store-details { padding: 4rem 1.5rem; }
+    .fin-inner { grid-template-columns: 1fr; }
+    .fin-calc-col { order: -1; }
+    .term-grid { grid-template-columns: repeat(4, 1fr); }
+    .results-row { grid-template-columns: 1fr; gap: 10px; }
+    .result-card.featured { order: -1; }
+  }
+
+  /* FINANCING SECTION */
+  .financing-section {
+    background: var(--charcoal-soft);
+    padding: 7rem 3rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .fin-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .fin-pitch { padding-top: 0.5rem; }
+
+  .fin-pitch .section-heading { margin-bottom: 1.25rem; }
+
+  .fin-pitch .section-body { margin-bottom: 2rem; }
+
+  .fin-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .fin-perk {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .perk-icon {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .perk-text h4 {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.15rem;
+  }
+
+  .perk-text p {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    line-height: 1.6;
+  }
+
+  /* CALCULATOR CARD */
+  .calc-card {
+    background: var(--charcoal);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .calc-header {
+    background: rgba(201,168,76,0.06);
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .calc-logo-mark {
+    width: 34px; height: 34px;
+    background: var(--gold);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--charcoal);
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+  }
+
+  .calc-header-text h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 2px;
+  }
+
+  .calc-header-text p {
+    font-size: 0.72rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.02em;
+  }
+
+  .calc-body { padding: 1.5rem 1.75rem; }
+
+  .calc-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .quick-picks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+
+  .qp-btn {
+    padding: 10px 8px;
+    background: var(--charcoal-soft);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 8px;
+    color: var(--cream);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .qp-btn .qp-name { font-size: 0.68rem; color: var(--warm-gray); margin-bottom: 3px; }
+  .qp-btn .qp-price { font-size: 0.85rem; font-weight: 500; }
+
+  .qp-btn:hover, .qp-btn.active {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.07);
+  }
+  .qp-btn.active .qp-price { color: var(--gold-light); }
+
+  .amount-row {
+    display: flex;
+    align-items: center;
+    background: var(--charcoal-soft);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 10px;
+    padding: 0 1rem;
+    margin-bottom: 1.1rem;
+    transition: border-color 0.15s;
+  }
+
+  .amount-row:focus-within { border-color: var(--gold); }
+
+  .currency-sym {
+    font-size: 1.3rem;
+    color: var(--gold);
+    font-weight: 300;
+    margin-right: 6px;
+  }
+
+  .amount-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--cream);
+    width: 100%;
+    padding: 0.75rem 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .amount-input::placeholder { color: rgba(245,240,232,0.2); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .calc-field { display: flex; flex-direction: column; }
+
+  .calc-field input[type="number"],
+  .calc-select {
+    background: var(--charcoal-soft);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 8px;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    padding: 0.6rem 0.85rem;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.15s;
+  }
+
+  .calc-field input[type="number"]:focus,
+  .calc-select:focus { border-color: var(--gold); }
+
+  .calc-field input[type="number"]::placeholder { color: rgba(245,240,232,0.25); }
+
+  .select-wrap { position: relative; }
+
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold); font-size: 11px;
+    pointer-events: none;
+  }
+
+  .term-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .term-btn {
+    padding: 8px 4px;
+    background: var(--charcoal-soft);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 7px;
+    color: var(--warm-gray);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .term-btn:hover { border-color: var(--gold); color: var(--cream); }
+
+  .term-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  .calc-divider {
+    height: 1px;
+    background: rgba(201,168,76,0.1);
+    margin: 0 -1.75rem 1.25rem;
+  }
+
+  .results-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 1.1rem;
+  }
+
+  .result-card {
+    background: var(--charcoal-soft);
+    border-radius: 8px;
+    padding: 0.85rem 0.75rem;
+    border: 1px solid rgba(201,168,76,0.1);
+    text-align: center;
+  }
+
+  .result-card.featured {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .result-lbl {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 4px;
+  }
+
+  .result-card.featured .result-lbl { color: rgba(26,23,20,0.6); }
+
+  .result-val {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .result-card.featured .result-val { color: var(--charcoal); font-size: 1.5rem; }
+
+  .result-hint {
+    font-size: 0.65rem;
+    color: var(--warm-gray);
+    margin-top: 3px;
+  }
+
+  .result-card.featured .result-hint { color: rgba(26,23,20,0.5); }
+
+  .bar-area { margin-bottom: 1.1rem; }
+
+  .bar-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: var(--warm-gray);
+    margin-bottom: 5px;
+  }
+
+  .bar-track {
+    height: 5px;
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    gap: 2px;
+    background: var(--charcoal-soft);
+  }
+
+  .bar-principal {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 3px 0 0 3px;
+    transition: width 0.4s ease;
+  }
+
+  .bar-interest-fill {
+    height: 100%;
+    background: rgba(201,168,76,0.28);
+    transition: width 0.4s ease;
+  }
+
+  .bar-legend {
+    display: flex;
+    gap: 1rem;
+    margin-top: 6px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    color: var(--warm-gray);
+  }
+
+  .legend-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .calc-notice {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 7px;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.72rem;
+    color: var(--warm-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .calc-notice strong { color: var(--gold-light); font-weight: 500; }
+
+  .calc-actions { display: flex; gap: 8px; }
+
+  .calc-btn-primary {
+    flex: 1;
+    background: var(--gold);
+    color: var(--charcoal);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+  }
+
+  .calc-btn-primary:hover { background: var(--gold-light); color: var(--charcoal); }
+
+  .fin-error {
+    font-size: 0.68rem;
+    color: #e05a5a;
+    margin-top: 3px;
+    display: none;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Relevant <span>Furniture</span></a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#featured">Shop</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#financing">Financing</a></li>
+    <li><a href="#visit">Visit Us</a></li>
+  </ul>
+  <a href="tel:2679005286" class="nav-cta">Call Us: (267) 900-5286</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Philadelphia's Premier Furniture Destination</div>
+    <h1 class="hero-display">
+      Where<br>
+      Living<br>
+      <em>Becomes</em><br>
+      Art.
+    </h1>
+    <p class="hero-sub">
+      Curated modern designs. Elegant bedroom sets. Luxurious living collections. 
+      Located in the heart of North Philadelphia — delivered same day, set up with care.
+    </p>
+    <div class="hero-actions">
+      <a href="#featured" class="btn-primary">Explore Collection</a>
+      <a href="#visit" class="btn-ghost">Visit Showroom</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-image-container">
+      <!-- Real showroom photo -->
+      <img src="1.1.jpg" alt="Luxury white sectional sofa at Relevant Furniture showroom" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.85;"/>
+    </div>
+
+    <!-- Hero stats -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">47K+</div>
+        <div class="stat-label">Instagram Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5★</div>
+        <div class="stat-label">Customer Rated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">Same<br>Day</div>
+        <div class="stat-label">Delivery Available</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Living Room</span><span class="dot">✦</span>
+    <span>Bedroom Sets</span><span class="dot">✦</span>
+    <span>Dining Collections</span><span class="dot">✦</span>
+    <span>Same Day Delivery</span><span class="dot">✦</span>
+    <span>Accent Pieces</span><span class="dot">✦</span>
+    <span>Financing Available</span><span class="dot">✦</span>
+    <span>Open 7 Days</span><span class="dot">✦</span>
+    <span>North Philadelphia</span><span class="dot">✦</span>
+    <!-- Duplicate for seamless loop -->
+    <span>Living Room</span><span class="dot">✦</span>
+    <span>Bedroom Sets</span><span class="dot">✦</span>
+    <span>Dining Collections</span><span class="dot">✦</span>
+    <span>Same Day Delivery</span><span class="dot">✦</span>
+    <span>Accent Pieces</span><span class="dot">✦</span>
+    <span>Financing Available</span><span class="dot">✦</span>
+    <span>Open 7 Days</span><span class="dot">✦</span>
+    <span>North Philadelphia</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-text">
+    <div class="section-label">Our Philosophy</div>
+    <h2 class="section-heading">
+      Every piece<br>
+      tells a <em>story.</em><br>
+      Make it yours.
+    </h2>
+    <p class="section-body">
+      Relevant Furniture was born from a simple belief: beautiful, elevated design shouldn't 
+      be reserved for a select few. Since 2021, we've been bringing modern elegance and 
+      exceptional craftsmanship to Philadelphia — with a team that treats every customer 
+      like family and every home like a canvas.
+    </p>
+    <a href="#featured" class="btn-ghost" style="display:inline-flex;">Explore Our World</a>
+  </div>
+
+  <div class="philosophy-visual">
+    <div class="philosophy-grid">
+      <div class="phil-cell">
+        <div class="phil-icon">✦</div>
+        <h4>Curated Design</h4>
+        <p>Every piece hand-selected for elegance and durability</p>
+      </div>
+      <div class="phil-cell">
+        <div class="phil-icon">⬡</div>
+        <h4>White Glove Service</h4>
+        <p>Dedicated staff committed to your perfect space</p>
+      </div>
+      <div class="phil-cell">
+        <div class="phil-icon">◈</div>
+        <h4>Same Day Delivery</h4>
+        <p>From our showroom floor to your home, same day</p>
+      </div>
+      <div class="phil-cell">
+        <div class="phil-icon">◇</div>
+        <h4>Real Value</h4>
+        <p>Luxury aesthetics at prices that make sense</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="collections">
+  <div class="categories-header">
+    <div>
+      <div class="section-label">Collections</div>
+      <h2 class="section-heading" style="font-size:clamp(2rem,4vw,3.2rem);">
+        Browse by <em>Space</em>
+      </h2>
+    </div>
+    <a href="#featured" class="btn-ghost">View All</a>
+  </div>
+
+  <div class="categories-grid">
+
+    <!-- Category 1: Living Room (large) -->
+    <div class="category-card">
+      <div class="cat-bg" style="position:absolute; inset:0;">
+        <img src="1.1.jpg" alt="Living room sectional" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+          <rect x="40" y="350" width="320" height="120" rx="12" fill="#2d2015"/>
+          <rect x="40" y="250" width="320" height="108" rx="12" fill="#241a0f"/>
+          <rect x="15" y="255" width="50" height="220" rx="12" fill="#2a1f13"/>
+          <rect x="335" y="255" width="50" height="220" rx="12" fill="#2a1f13"/>
+          <rect x="60" y="265" width="130" height="85" rx="8" fill="#2d2015"/>
+          <rect x="210" y="265" width="130" height="85" rx="8" fill="#2d2015"/>
+          <rect x="60" y="360" width="130" height="100" rx="8" fill="#2d2015"/>
+          <rect x="210" y="360" width="130" height="100" rx="8" fill="#2d2015"/>
+          <rect x="40" y="250" width="320" height="4" fill="rgba(201,168,76,0.2)"/>
+          <rect x="140" y="170" width="120" height="75" rx="2" fill="#1e1510" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+          <circle cx="200" cy="207" r="22" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+          <ellipse cx="200" cy="475" rx="155" ry="15" fill="rgba(0,0,0,0.4)"/>
+          <rect x="160" y="470" width="12" height="35" rx="3" fill="#2a1f13"/>
+          <rect x="228" y="470" width="12" height="35" rx="3" fill="#2a1f13"/>
+      </div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">01 / Sofas & Seating</div>
+        <div class="cat-title">Living Room</div>
+      </div>
+      <div class="cat-arrow">→</div>
+    </div>
+
+    <!-- Category 2: Bedroom -->
+    <div class="category-card">
+      <div class="cat-bg" style="position:absolute;inset:0;">
+        <img src="1.2.jpg" alt="Bedroom set" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+      </div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">02 / Beds & Sets</div>
+        <div class="cat-title">Bedroom</div>
+      </div>
+      <div class="cat-arrow">→</div>
+    </div>
+
+    <!-- Category 3: Dining -->
+    <div class="category-card">
+      <div class="cat-bg" style="position:absolute;inset:0;">
+        <img src="1.5.jpg" alt="Marble dining table" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+      </div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">03 / Tables & Chairs</div>
+        <div class="cat-title">Dining</div>
+      </div>
+      <div class="cat-arrow">→</div>
+    </div>
+
+    <!-- Category 4: Accents -->
+    <div class="category-card">
+      <div class="cat-bg" style="position:absolute;inset:0;">
+        <img src="1.7.jpg" alt="Luxury velvet bed" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+      </div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">04 / Décor & More</div>
+        <div class="cat-title">Accents</div>
+      </div>
+      <div class="cat-arrow">→</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="featured" id="featured">
+  <div class="featured-header">
+    <div class="section-label" style="justify-content:center;">Featured Pieces</div>
+    <h2 class="section-heading" style="font-size:clamp(2.2rem,4.5vw,3.8rem);">
+      Current <em>Highlights</em>
+    </h2>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="1.1.jpg" alt="White sectional sofa" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+        <div class="product-badge">Bestseller</div>
+      </div>
+      <div class="product-name">Grand Velour Sectional</div>
+      <div class="product-desc">L-shape • Deep seating • Available in 6 colorways</div>
+      <div class="product-footer">
+        <div class="product-price">From $1,299</div>
+        <a href="tel:2679005286" class="product-cta">Inquire</a>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="1.4.jpg" alt="White and gold bedroom set" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+        <div class="product-badge">New Arrival</div>
+      </div>
+      <div class="product-name">Monaco Upholstered Bed</div>
+      <div class="product-desc">King & Queen • Tufted headboard • Includes nightstands</div>
+      <div class="product-footer">
+        <div class="product-price">From $849</div>
+        <a href="tel:2679005286" class="product-cta">Inquire</a>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="1.5.jpg" alt="Marble top dining table with chairs" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+      </div>
+      <div class="product-name">Palermo Dining Set</div>
+      <div class="product-desc">Marble top • 6 upholstered chairs • Statement piece</div>
+      <div class="product-footer">
+        <div class="product-price">From $1,099</div>
+        <a href="tel:2679005286" class="product-cta">Inquire</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="section-label">Customer Stories</div>
+  <h2 class="section-heading">
+    What Philadelphia<br>is <em>saying.</em>
+  </h2>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-quote">
+        "Tony got me approved with no hassle — everything in the store is elegant and reasonably priced. 
+        I've never had an experience like this at any other furniture store."
+      </p>
+      <div class="review-author">
+        <div class="author-avatar">MK</div>
+        <div>
+          <div class="author-name">Marcus K.</div>
+          <div class="author-via">Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-quote">
+        "Got everything I needed in 20 minutes — and they delivered my living set the very next morning. 
+        Quickest delivery I've ever encountered. Coming back for my bedroom sets."
+      </p>
+      <div class="review-author">
+        <div class="author-avatar">JR</div>
+        <div>
+          <div class="author-name">Jess R.</div>
+          <div class="author-via">Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-quote">
+        "This is the best furniture store in Philly. The bedroom set came next day and they put it 
+        together too. Unique furniture you won't find anywhere else. Strongly recommend."
+      </p>
+      <div class="review-author">
+        <div class="author-avatar">DN</div>
+        <div>
+          <div class="author-name">Diane N.</div>
+          <div class="author-via">Google Review</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DELIVERY STRIP -->
+<div class="delivery-strip">
+  <div class="delivery-item">
+    <span class="delivery-icon">◈</span>
+    <div class="delivery-title">Same Day Delivery</div>
+    <div class="delivery-sub">Mon–Sat 10am–7pm<br>Sunday 11am–5pm</div>
+  </div>
+  <div class="delivery-item">
+    <span class="delivery-icon">✦</span>
+    <div class="delivery-title">White Glove Setup</div>
+    <div class="delivery-sub">Full assembly included<br>in your delivery</div>
+  </div>
+  <div class="delivery-item">
+    <span class="delivery-icon">◇</span>
+    <div class="delivery-title">Flexible Financing</div>
+    <div class="delivery-sub">No credit needed<br>to get approved</div>
+  </div>
+  <div class="delivery-item">
+    <span class="delivery-icon">⬡</span>
+    <div class="delivery-title">Open 7 Days</div>
+    <div class="delivery-sub">Always here for you<br>365 days a year</div>
+  </div>
+</div>
+
+<!-- FINANCING -->
+<section class="financing-section" id="financing">
+  <div class="fin-inner">
+
+    <div class="fin-pitch">
+      <div class="section-label">Flexible Financing</div>
+      <h2 class="section-heading" style="font-size:clamp(2rem,3.8vw,3.5rem);">
+        Your home,<br>
+        on your <em>terms.</em>
+      </h2>
+      <p class="section-body">
+        We believe everyone deserves a beautiful home. That's why we work with all 
+        credit situations — no credit, low credit, or just starting out. 
+        Tony and the team make the process easy and judgment-free.
+      </p>
+
+      <div class="fin-perks">
+        <div class="fin-perk">
+          <div class="perk-icon">✦</div>
+          <div class="perk-text">
+            <h4>No credit needed to get started</h4>
+            <p>We have options for every credit situation, from excellent to none at all.</p>
+          </div>
+        </div>
+        <div class="fin-perk">
+          <div class="perk-icon">◈</div>
+          <div class="perk-text">
+            <h4>Same-day approval, same-day delivery</h4>
+            <p>Get approved in the store and have your furniture home the same day.</p>
+          </div>
+        </div>
+        <div class="fin-perk">
+          <div class="perk-icon">◇</div>
+          <div class="perk-text">
+            <h4>Flexible terms up to 24 months</h4>
+            <p>Choose the monthly payment that fits your budget. No pressure, no judgment.</p>
+          </div>
+        </div>
+        <div class="fin-perk">
+          <div class="perk-icon">⬡</div>
+          <div class="perk-text">
+            <h4>Se habla español</h4>
+            <p>Our bilingual team is here to walk you through every step of the process.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="tel:2679005286" class="btn-primary">Talk to Tony — (267) 900-5286</a>
+    </div>
+
+    <div class="fin-calc-col">
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-logo-mark">RF</div>
+          <div class="calc-header-text">
+            <h3>Payment estimator</h3>
+            <p>No credit check to see your options</p>
+          </div>
+        </div>
+
+        <div class="calc-body">
+
+          <span class="calc-label">Quick pick a piece</span>
+          <div class="quick-picks">
+            <button class="qp-btn" data-price="849" onclick="rfQuickPick(this)">
+              <div class="qp-name">Bedroom set</div>
+              <div class="qp-price">$849</div>
+            </button>
+            <button class="qp-btn" data-price="1299" onclick="rfQuickPick(this)">
+              <div class="qp-name">Sectional sofa</div>
+              <div class="qp-price">$1,299</div>
+            </button>
+            <button class="qp-btn" data-price="1099" onclick="rfQuickPick(this)">
+              <div class="qp-name">Dining set</div>
+              <div class="qp-price">$1,099</div>
+            </button>
+            <button class="qp-btn" data-price="1899" onclick="rfQuickPick(this)">
+              <div class="qp-name">Full room</div>
+              <div class="qp-price">$1,899</div>
+            </button>
+          </div>
+
+          <span class="calc-label">Or enter your total</span>
+          <div class="amount-row">
+            <span class="currency-sym">$</span>
+            <input class="amount-input" type="number" id="rf-amount" placeholder="0" min="0" max="50000" oninput="rfCalc()">
+          </div>
+          <div class="fin-error" id="rf-amount-error">Enter an amount between $100 and $50,000.</div>
+
+          <div class="two-col">
+            <div class="calc-field">
+              <span class="calc-label">Down payment</span>
+              <input type="number" id="rf-down" placeholder="$0" min="0" oninput="rfCalc()" style="width:100%;">
+              <div class="fin-error" id="rf-down-error">Down exceeds purchase price.</div>
+            </div>
+            <div class="calc-field">
+              <span class="calc-label">Interest rate</span>
+              <div class="select-wrap">
+                <select id="rf-rate" class="calc-select" onchange="rfCalc()" style="width:100%;">
+                  <option value="0">0% — promotional</option>
+                  <option value="9.99">9.99% — good credit</option>
+                  <option value="14.99" selected>14.99% — fair credit</option>
+                  <option value="19.99">19.99% — building credit</option>
+                  <option value="24.99">24.99% — no credit check</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <span class="calc-label">Loan term</span>
+          <div class="term-grid">
+            <button class="term-btn" data-months="6" onclick="rfSetTerm(this)">6 mo</button>
+            <button class="term-btn active" data-months="12" onclick="rfSetTerm(this)">12 mo</button>
+            <button class="term-btn" data-months="18" onclick="rfSetTerm(this)">18 mo</button>
+            <button class="term-btn" data-months="24" onclick="rfSetTerm(this)">24 mo</button>
+          </div>
+
+          <div class="calc-divider"></div>
+
+          <div class="results-row">
+            <div class="result-card">
+              <div class="result-lbl">Financed</div>
+              <div class="result-val" id="rf-res-financed">$—</div>
+              <div class="result-hint">after down payment</div>
+            </div>
+            <div class="result-card featured">
+              <div class="result-lbl">Monthly payment</div>
+              <div class="result-val" id="rf-res-monthly">$—</div>
+              <div class="result-hint" id="rf-res-term">per month</div>
+            </div>
+            <div class="result-card">
+              <div class="result-lbl">Total interest</div>
+              <div class="result-val" id="rf-res-interest">$—</div>
+              <div class="result-hint" id="rf-res-total">total: —</div>
+            </div>
+          </div>
+
+          <div class="bar-area">
+            <div class="bar-meta">
+              <span>Principal vs. interest</span>
+              <span id="rf-bar-pct">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-principal" id="rf-bar-p" style="width:0%;"></div>
+              <div class="bar-interest-fill" id="rf-bar-i" style="width:0%;"></div>
+            </div>
+            <div class="bar-legend">
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--gold);"></div>
+                <span>Principal</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background:rgba(201,168,76,0.28);"></div>
+                <span>Interest</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-notice">
+            <strong>Estimates only.</strong> Actual rate and terms are set in-store based on your profile. 
+            Call <strong>(267) 900-5286</strong> — Tony gets people approved fast, no hassle.
+          </div>
+
+          <div class="calc-actions">
+            <a href="tel:2679005286" class="calc-btn-primary">Call to get approved</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORE INFO -->
+<section class="store-info" id="visit">
+  <div class="store-details">
+    <div class="section-label">Visit Our Showroom</div>
+    <h2 class="section-heading" style="font-size:clamp(2rem,3.5vw,3rem); margin-bottom:3rem;">
+      Come see it<br>
+      <em>in person.</em>
+    </h2>
+
+    <div class="info-block">
+      <div class="info-label">Location</div>
+      <div class="info-value">
+        5675 N Front Street<br>
+        Olney Plaza, Suite 130<br>
+        Philadelphia, PA 19120
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">Phone</div>
+      <div class="info-value">
+        <a href="tel:2679005286">(267) 900-5286</a><br>
+        <span style="font-size:0.8rem; color:var(--warm-gray);">Se habla español</span>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">Store Hours</div>
+      <div class="hours-grid">
+        <div class="hour-row"><span class="day">Monday</span><span class="time">10am – 7pm</span></div>
+        <div class="hour-row"><span class="day">Tuesday</span><span class="time">10am – 7pm</span></div>
+        <div class="hour-row"><span class="day">Wednesday</span><span class="time">10am – 7pm</span></div>
+        <div class="hour-row"><span class="day">Thursday</span><span class="time">10am – 7pm</span></div>
+        <div class="hour-row"><span class="day">Friday</span><span class="time">10am – 7pm</span></div>
+        <div class="hour-row"><span class="day">Saturday</span><span class="time">10am – 7pm</span></div>
+        <div class="hour-row"><span class="day">Sunday</span><span class="time">11am – 5pm</span></div>
+      </div>
+    </div>
+
+    <a href="https://maps.google.com/?q=5675+N+Front+St+Philadelphia+PA+19120" target="_blank" class="btn-primary" style="margin-top:1.5rem; display:inline-block;">
+      Get Directions
+    </a>
+  </div>
+
+  <div class="store-map-area" style="padding:0;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.4!2d-75.1201!3d40.0401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b21b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2s5675%20N%20Front%20St%2C%20Philadelphia%2C%20PA%2019120!5e0!3m2!1sen!2sus!4v1234567890"
+      width="100%"
+      height="100%"
+      style="border:0; filter: invert(90%) hue-rotate(180deg) saturate(0.8); min-height:400px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg-text">Relevant</div>
+  <div class="section-label" style="justify-content:center;">Ready to Transform Your Space?</div>
+  <h2 class="cta-heading">
+    Your dream home<br>
+    starts here.
+  </h2>
+  <p class="cta-sub">
+    Visit our showroom in Olney Plaza — where elegance meets accessibility. 
+    Same-day delivery available. Our team is ready to help you find exactly 
+    what your home deserves.
+  </p>
+  <a href="tel:2679005286" class="btn-dark">Call (267) 900-5286</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">Relevant <span>Furniture</span></a>
+      <p class="footer-tagline">
+        Bringing elevated design and modern elegance to the heart of Philadelphia — since 2021.
+      </p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/relevantfurniture1/" target="_blank" class="social-link" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/RelevantFurniture/" target="_blank" class="social-link" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="#">Living Room</a></li>
+        <li><a href="#">Bedroom Sets</a></li>
+        <li><a href="#">Dining</a></li>
+        <li><a href="#">Accent Pieces</a></li>
+        <li><a href="#">New Arrivals</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#financing">Same Day Delivery</a></li>
+        <li><a href="#financing">Financing</a></li>
+        <li><a href="#financing">White Glove Setup</a></li>
+        <li><a href="#financing">Custom Orders</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:2679005286">(267) 900-5286</a></li>
+        <li><a href="https://maps.google.com/?q=5675+N+Front+St+Philadelphia+PA" target="_blank">5675 N Front St</a></li>
+        <li><a href="https://www.instagram.com/relevantfurniture1/" target="_blank">@relevantfurniture1</a></li>
+        <li><a href="#">Se habla español</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Relevant Furniture Inc. Philadelphia, PA</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── FINANCING CALCULATOR ── */
+  let rfMonths = 12;
+
+  function rfQuickPick(btn) {
+    document.querySelectorAll('.qp-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('rf-amount').value = btn.dataset.price;
+    rfCalc();
+  }
+
+  function rfSetTerm(btn) {
+    document.querySelectorAll('.term-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    rfMonths = parseInt(btn.dataset.months);
+    rfCalc();
+  }
+
+  function rfFmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function rfCalc() {
+    const raw   = parseFloat(document.getElementById('rf-amount').value) || 0;
+    const down  = parseFloat(document.getElementById('rf-down').value)   || 0;
+    const rate  = parseFloat(document.getElementById('rf-rate').value);
+    const months = rfMonths;
+
+    const amtErr  = document.getElementById('rf-amount-error');
+    const downErr = document.getElementById('rf-down-error');
+
+    amtErr.style.display  = (raw > 0 && (raw < 100 || raw > 50000)) ? 'block' : 'none';
+    downErr.style.display = (down > raw && raw > 0)                  ? 'block' : 'none';
+
+    if (raw < 100 || raw > 50000 || down >= raw) { rfClear(); return; }
+
+    const principal = raw - down;
+
+    let monthly, totalPaid, totalInterest;
+
+    if (rate === 0) {
+      monthly       = principal / months;
+      totalInterest = 0;
+      totalPaid     = principal;
+    } else {
+      const r   = rate / 100 / 12;
+      monthly   = principal * r * Math.pow(1 + r, months) / (Math.pow(1 + r, months) - 1);
+      totalPaid = monthly * months;
+      totalInterest = totalPaid - principal;
+    }
+
+    document.getElementById('rf-res-financed').textContent = rfFmt(principal);
+    document.getElementById('rf-res-monthly').textContent  = rfFmt(monthly);
+    document.getElementById('rf-res-term').textContent     = 'for ' + months + ' months';
+    document.getElementById('rf-res-interest').textContent = rfFmt(totalInterest);
+    document.getElementById('rf-res-total').textContent    = 'total: ' + rfFmt(totalPaid);
+
+    const iPct = totalPaid > 0 ? Math.round(totalInterest / totalPaid * 100) : 0;
+    const pPct = 100 - iPct;
+    document.getElementById('rf-bar-p').style.width = pPct + '%';
+    document.getElementById('rf-bar-i').style.width = iPct + '%';
+    document.getElementById('rf-bar-pct').textContent = pPct + '% principal';
+  }
+
+  function rfClear() {
+    ['rf-res-financed','rf-res-monthly','rf-res-interest'].forEach(id => {
+      document.getElementById(id).textContent = '$—';
+    });
+    document.getElementById('rf-res-term').textContent  = 'per month';
+    document.getElementById('rf-res-total').textContent = 'total: —';
+    document.getElementById('rf-bar-p').style.width = '0%';
+    document.getElementById('rf-bar-i').style.width = '0%';
+    document.getElementById('rf-bar-pct').textContent = '—';
+  }
+</script>
+
+</body>
+</html>
